@@ -11,11 +11,14 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".GameActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:screenOrientation="landscape"
                 android:configChanges="orientation|keyboardHidden|screenSize"
-                android:label="@string/title_activity_game"
-                android:theme="@style/FullscreenTheme">
+                android:label="@string/title_activity_game">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
