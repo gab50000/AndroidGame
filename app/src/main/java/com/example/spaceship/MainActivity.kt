@@ -8,7 +8,7 @@ import android.widget.Button
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
-        val intent = Intent(this, GameActivity.javaClass)
+        val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
         finish()
     }
