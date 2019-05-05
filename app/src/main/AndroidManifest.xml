@@ -11,8 +11,6 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".GameActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:label="@string/title_activity_game"
                 android:screenOrientation="landscape"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
         </activity>
