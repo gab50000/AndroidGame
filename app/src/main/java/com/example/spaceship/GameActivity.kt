@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.activity_game.*
  * status bar and navigation/system bar) with user interaction.
  */
 class GameActivity : AppCompatActivity() {
+    lateinit var spaceView: SpaceView
+
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
@@ -60,6 +62,9 @@ class GameActivity : AppCompatActivity() {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         dummy_button.setOnTouchListener(mDelayHideTouchListener)
+
+        spaceView = SpaceView(this)
+        setContentView(spaceView)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -69,6 +74,12 @@ class GameActivity : AppCompatActivity() {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        spaceView.pause()
+
     }
 
     private fun toggle() {
