@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val gameButton: Button = findViewById(R.id.gameButton)
+        val gameButton: Button = findViewById(R.id.gameButton) as Button
         gameButton.setOnClickListener(this)
     }
 }
