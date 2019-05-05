@@ -6,6 +6,7 @@ import android.view.SurfaceView
 class SpaceView(context: Context?) : SurfaceView(context), Runnable{
 
     private var playing = false
+    private lateinit var gameThread: Thread
 
     override fun run() {
         while (playing){
@@ -25,6 +26,19 @@ class SpaceView(context: Context?) : SurfaceView(context), Runnable{
 
     fun control(){
 
+    }
+
+    fun pause(){
+        playing = false
+        try{
+            gameThread.join()
+        } catch (e: InterruptedException){}
+    }
+
+    fun resume(){
+        playing = true
+        gameThread = Thread(this)
+        gameThread.start()
     }
 
 }
