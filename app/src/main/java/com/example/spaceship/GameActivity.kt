@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import kotlinx.android.synthetic.main.activity_game.*
+import java.util.logging.Logger
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -12,8 +13,10 @@ import kotlinx.android.synthetic.main.activity_game.*
  */
 class GameActivity : AppCompatActivity() {
     lateinit var spaceView: SpaceView
+    var logger = Logger.getLogger("GameView")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        logger.info("Game Activity created")
         super.onCreate(savedInstanceState)
         spaceView = SpaceView(this)
         setContentView(spaceView)
@@ -23,6 +26,11 @@ class GameActivity : AppCompatActivity() {
         super.onPause()
         spaceView.pause()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        spaceView.resume()
     }
 
 }
