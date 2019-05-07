@@ -1,5 +1,6 @@
 package com.example.spaceship
 
+import android.graphics.Point
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -17,9 +18,13 @@ class GameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         logger.info("Game Activity created")
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
         super.onCreate(savedInstanceState)
-        spaceView = SpaceView(this)
+        spaceView = SpaceView(this, size.x, size.y)
         setContentView(spaceView)
+
     }
 
     override fun onPause() {
