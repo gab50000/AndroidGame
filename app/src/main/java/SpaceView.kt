@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 
-class SpaceView(context: Context?) : SurfaceView(context), Runnable{
+class SpaceView(context: Context?, x: Int, y: Int) : SurfaceView(context), Runnable{
 
     private var playing = false
     private lateinit var gameThread: Thread
